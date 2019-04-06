@@ -1,3 +1,10 @@
+// Grace, tu trabajo es excelente. 
+// Tu codigo es claro, bien ordenado. 
+// Te deje algunos comentarios sueltos. En ocasiones los nombres de tus variables no son muy descriptivas
+// Y hay algunas cosas "hardcodeadas" (te hice comentarios en ambos casos)
+// Son aspectos a tener en cuenta para ir mejorando. 
+// Felicitaciones
+
 var local = {
     vendedoras: ["Ada", "Grace", "Hedy", "Sheryl"],
 
@@ -56,7 +63,10 @@ function cantidadVentasComponente(componente) {
             }
         }
     }
-    return zero
+    return zero // esto es un detalle, pero en general
+    // vamos a preferir nombres de variables descriptivos, es decir
+    // que indiquen claramente cual es el dato que contienen
+    // en este caso, por ejemplo, "cantidadDeVentas" o "total" seria preferible
 
 }
 
@@ -75,6 +85,8 @@ console.log(cantidadVentasComponente("Monitor ASC 543"));
 //hay que filtrar estas dos cosas porque se nos pide por el parametro.
 
 
+// otro detalle, pero si esto fuera para un trabajo o para una entrevista de programacion
+// seria MUY recomendable que saques todos los console.log o comentarios de tu codigo
 
 function vendedoraDelMes(mes, anio) {
     var arrayVendedoras = [];
@@ -104,6 +116,12 @@ function vendedoraDelMes(mes, anio) {
             ventaMax = arrayVendedoras[k].ventas;
             mejorVendedora = arrayVendedoras[k].nombre;
             return 'La vendedora del mes es' + ' ' + mejorVendedora + ' ' + 'con' + ' ' + ventaMax + ' ' + 'pesos vendidos'
+        // atencion a la consigna: esta funcion debia retornar un string, el nombre de la vendedora
+            // en este caso no importa, pero asi como usamos otras funciones, en el futuro podriamos querer
+            // usar esta funcion para otra cosa. Y en ese caso habria que cambiar si o si el return
+            // en general el return de una funcion es un dato lo mas sencillo posible
+            // (aunque mientras codeamos, podemos hacer uno mas descriptivo para no perdernos, 
+            // al momento de entregar la version final, dejamos el return en un solo dato)
         }
     }
 }
@@ -124,6 +142,8 @@ function ventasMes(mes, anio) {
     return ventasMes
 }
 
+// excelente 
+
 console.log('Las ventas del mes fueron', ventasMes(1, 2019), 'pesos');
 
 function ventasVendedora(nombre) {
@@ -138,6 +158,7 @@ function ventasVendedora(nombre) {
     return ventasVendedora 
 }
 
+// muy bien!
 console.log(ventasVendedora("Grace"))
 
 
@@ -160,6 +181,7 @@ function componenteMasVendido() {
             posicion = [j]
         }
         return local.precios[j].componente + ' ' + 'con:' + ' ' + valorMaximo + ' ' + 'ventas'
+        // misma observacion que en vendedoraDelMes 
     }
 
 }
@@ -178,6 +200,9 @@ function huboVentas(mes, anio) {
     }
     return huboVentas
 }
+
+// excelente!
+
 
 console.log('Hubo ventas en el mes:', huboVentas(3, 2019));
 
@@ -252,6 +277,10 @@ function sucursalDelMes(mes, anio) {
 console.log(sucursalDelMes(1, 2019));
 
 
+// habria sido recomendable modificar esta funcion de la misma manera que lo hicimos con vendedoraDelMes
+// para no "hardcodear" los nombres de las sucursales
+// (por ej si en un futuro se agrega una tercera sucursal, esta funcion ya no nos sirve)
+
 //PARTE 3
 
 function renderPorMes() {
@@ -286,6 +315,18 @@ function renderPorSucursal() {
         }
     } return caballito + '\n' + centro
 }
+
+// Una manera que nos evita tener que "hardcodear" las sucursales aca es
+// recorriedo el array local.sucursales
+// asi:
+// function renderPorSucursal() {
+//     var sucursal = '';
+//     for (let i = 0; i < local.sucursales.length; i++) {
+//         sucu = console.log('Total de ' + local.sucursales[i] + ': ' + ventasSucursal(local.sucursal[i]))
+        
+//     }
+//     return sucursal;
+// }
 
 
 
